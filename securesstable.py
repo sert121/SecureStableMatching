@@ -303,8 +303,7 @@ if add_selectbox =="Manually enter preferences":
         if results!=None:
             print(results)
             st.write("hello")
-    # st.write(complete_male_prefs)
-    # st.write(complete_female_prefs) 
+
 elif add_selectbox=="Enter Preferences List":        
     mprefs = st.text_input('Men\'s Preferences', '')
     st.write('You\'ve entered: ', mprefs)
@@ -329,24 +328,10 @@ with st.beta_expander('Time Complexity'):
     y_vals_1 = [ 11.085 , 20.609 , 37.294 , 61.891 ,94.832 , 138.736 , 203.772, 281.717,380.379, 455.812, 572.636, 697.377,848.402,1017.834, 1220.885,1442.940, 1696.957,1980.268  ]
     chart_data = pd.DataFrame({"Number of clients":x_vals_1,"Time taken by algorithm (secs)": y_vals_1,"n3":[i**3 for i in range(3,21)]})
     data = chart_data.reset_index(drop=True).melt('Number of clients')
-    # data.rename(index={0:"Number of clients",1:"variable",2:"Time"})
-    # st.write(data)
+
     data = alt.Chart(data).mark_line().encode(x='Number of clients',y='value',color='variable')
     
     st.altair_chart(data,use_container_width=True)
-    # st.altair_chart(data,use_container_width=True)
-
-# with st.beta_expander('Memory Usage'):
-#     st.write('Dummy text 2 ')
-
-
-# chart_data = pd.DataFrame(\
-#     np.random.randn(20, 3),\
-#     columns=['a', 'b', 'c'])
-# st.line_chart(chart_data)
-
-
-
 
 hide_streamlit_style = """
             <style>
@@ -356,10 +341,3 @@ hide_streamlit_style = """
             """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True) #uncomment to remove made with streamlit option
 
-# my_bar = st.progress(0)
-# for percent_complete in range(100):
-#     time.sleep(0.1)
-#     my_bar.progress(percent_complete + 1)
-
-# st.markdown('''- Bullet1  
-#             - Bullet2  ''')
